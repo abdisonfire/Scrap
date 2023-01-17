@@ -53,6 +53,6 @@ while True:
 
         email_sender.send_email(message_list)
         print('Email sent successfully')
-    except:
-        print('Error')
+    except Exception as e:
+        print(e)
         continue
