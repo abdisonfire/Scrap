@@ -1,11 +1,14 @@
 import smtplib
 import ssl
+import json
 from email.message import EmailMessage
 
+f = open('creds.json')
+data = json.load(f)
 
 def send_email(message_list):
-    email_sender = 'nsucourselistreminder@gmail.com'
-    email_password = 'zrfaqzbeljisagiw'
+    email_sender = data['email']
+    email_password = data['pass']
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
